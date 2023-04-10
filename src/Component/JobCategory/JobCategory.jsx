@@ -1,7 +1,7 @@
 import React from 'react';
 
 const JobCategory = ({category}) => {
-    const {category_logo,category_name,job,id} = category;
+    const {category_logo,category_name,job} = category;
     return (
         <div className='m-5 py-5 px-10 border bg-gray-100 gap-8'>
             
