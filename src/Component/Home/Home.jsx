@@ -1,11 +1,20 @@
 import { BeakerIcon } from '@heroicons/react/24/solid';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import JobCategory from '../JobCategory/JobCategory';
+import Featuredjobs from '../Featuredjobs/Featuredjobs';
 
 const Home = () => {
-    const categorys = useLoaderData();
-    console.log(categorys)
+    const jobDatas = useLoaderData();
+    // console.log(jobDatas)
+    
+    const [categorys,setCategorys] = useState([]);
+    useEffect(()=>{
+    fetch('category.json')
+    .then(res=>res.json())
+    .then(data=>setCategorys(data))
+    },[])
+    // console.log(categorys)
     return (
         <div>
      <div className='grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-2 bg-gray-200 justify-around sm:max-w-xl mx-auto  md:max-w-full lg:w-max-screen-xl  px-10 py-5'>
@@ -20,11 +29,21 @@ const Home = () => {
             <div>
             </div>
         </div>
-           <div className='text-center mt-10 mb-5 pb-3'>
-                <h2 className='text-2xl font-bold text-gray-800'>Job Category List</h2>
+           <div className='text-center mt-12 mb-5 pb-3'>
+                <h2 className='text-3xl font-bold text-gray-800'>Job Category List</h2>
                 <p className='text-gray-700 text-lg pt-2'>Explore thousands of job opportunities with all the information you need. Its your future</p>
             </div>
-        <div className='grid grid-cols-2 mx-auto sm:w-[80%] lg:w-[80%] md:grid-cols-4 lg:grid-cols-4  '>{categorys.map(category=><JobCategory key={category.id} category={category}></JobCategory>)}</div>
+        <div className='grid grid-cols-2 mx-auto sm:w-[80%] lg:w-[80%] md:grid-cols-4 lg:grid-cols-4'>
+            {categorys.map(category=><JobCategory key={category.id} category={category}></JobCategory>)}
+            </div>
+            <div className='text-center mt-8 mb-5 pb-3'>
+                <h2 className='text-3xl font-bold text-gray-800'>Featured Jobs</h2>
+                <p className='text-gray-700 text-lg pt-2'>Explore thousands of job opportunities with all the information you need. Its your future</p>
+            </div>
+            <div className='grid grid-cols-1 mx-auto sm:w-[80%] lg:w-[80%] md:grid-cols-2 lg:grid-cols-2 '>
+                {jobDatas.map(jobData=><Featuredjobs key={jobData.id} jobData={jobData}></Featuredjobs>)}
+            </div>
+
         </div>
     );
 };
