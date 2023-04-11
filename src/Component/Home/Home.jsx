@@ -3,19 +3,34 @@ import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import JobCategory from '../JobCategory/JobCategory';
 import Featuredjobs from '../Featuredjobs/Featuredjobs';
-import { PhoneIcon, PhotoIcon } from '@heroicons/vue/24/solid';
+
 
 const Home = () => {
-    const jobDatas = useLoaderData();
-    // console.log(jobDatas)
-    
     const [categorys,setCategorys] = useState([]);
     useEffect(()=>{
-    fetch('category.json')
-    .then(res=>res.json())
-    .then(data=>setCategorys(data))
+        fetch('category.json')
+        .then(res=>res.json())
+        .then(data=>setCategorys(data))
     },[])
-    // console.log(categorys)
+
+
+    //  console.log(jobDatas)
+    const [jobDatas,setJobs] = useState([]);
+    const[totaljobData,setTotaljobData] = useState([]);
+
+    const totalJobses = useLoaderData();
+    
+    useEffect(()=>{
+        const fourJob = totalJobses.slice(0,4);
+        setJobs(fourJob)
+    },[totaljobData])
+   
+const seeAllButton = ()=>{
+    setTotaljobData(totalJobses);
+    setJobs(totaljobData)
+}
+
+
     return (
         <div>
      <div className='grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-2 bg-gray-200 justify-around sm:max-w-xl mx-auto  md:max-w-full lg:w-max-screen-xl  px-10 py-5'>
@@ -42,7 +57,10 @@ const Home = () => {
                 <p className='text-gray-700 text-lg pt-2'>Explore thousands of job opportunities with all the information you need. Its your future</p>
             </div>
             <div className='grid grid-cols-1 mx-auto sm:w-[80%] lg:w-[80%] md:grid-cols-2 lg:grid-cols-2 '>
-                {jobDatas.map(jobData=><Featuredjobs key={jobData.id} jobData={jobData}></Featuredjobs>)}
+                {jobDatas.map(jobData=><Featuredjobs key={jobDatas.id} jobData={jobData}></Featuredjobs>)}
+            </div>
+            <div className='text-center'>
+            <button onClick={seeAllButton} className='px-5 py-2 text-lg text-gray-100 rounded mb-5 font-bold border bg-indigo-500'>See All </button>
             </div>
         </div>
     );

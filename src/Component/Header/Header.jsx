@@ -13,6 +13,7 @@ const Header = () => {
          <NavLink to='/' className={({ isActive }) => (isActive ? 'text-blue-500' : 'default')}>Home</NavLink>
          <NavLink to='/statistic' className={({ isActive }) => (isActive ? 'text-blue-500' : 'default')}>Statistics</NavLink>
          <NavLink to='/applied' className={({ isActive }) => (isActive ? 'text-blue-500' : 'default')}>Applied Jobs</NavLink>
+         {/* <NavLink to='/jobdetails' className={({ isActive }) => (isActive ? 'text-blue-500' : 'default')}>Job Details</NavLink> */}
          <NavLink to='/blog' className={({ isActive }) => (isActive ? 'text-blue-500' : 'default')}>Blog</NavLink>
         <button className='bg-indigo-500 py-2 px-3 rounded text-white'>Start Applying</button>
          </ul>
