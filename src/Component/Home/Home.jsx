@@ -15,19 +15,19 @@ const Home = () => {
 
 
     //  console.log(jobDatas)
-    const [jobDatas,setJobs] = useState([]);
-    const[totaljobData,setTotaljobData] = useState([]);
+    const [jobDatas, setJobs] = useState([]);
+    // const[totaljobData,setTotaljobData] = useState([]);
 
     const totalJobses = useLoaderData();
     
     useEffect(()=>{
         const fourJob = totalJobses.slice(0,4);
         setJobs(fourJob)
-    },[totaljobData])
+    },[])
    
 const seeAllButton = ()=>{
-    setTotaljobData(totalJobses);
-    setJobs(totaljobData)
+//     setTotaljobData(totalJobses);
+    setJobs(totalJobses)
 }
 
 
@@ -57,7 +57,13 @@ const seeAllButton = ()=>{
                 <p className='text-gray-700 text-lg pt-2'>Explore thousands of job opportunities with all the information you need. Its your future</p>
             </div>
             <div className='grid grid-cols-1 mx-auto sm:w-[80%] lg:w-[80%] md:grid-cols-2 lg:grid-cols-2 '>
-                {jobDatas.map(jobData=><Featuredjobs key={jobDatas.id} jobData={jobData}></Featuredjobs>)}
+                {
+                jobDatas.map(jobData=><Featuredjobs 
+                key={jobData.id} 
+                jobData={jobData}>
+
+                </Featuredjobs>)
+                }
             </div>
             <div className='text-center'>
             <button onClick={seeAllButton} className='px-5 py-2 text-lg text-gray-100 rounded mb-5 font-bold border bg-indigo-500'>See All </button>

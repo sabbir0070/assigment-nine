@@ -4,12 +4,20 @@ import Applied from '../Applied/Applied';
 
 const Appliedjobs = () => {
     const jobs = useLoaderData();
-   const [remote,setRemote] = useState([]);
-   const remoteJob = ()=>{
-   const remotes =jobs.filter(job=>job.type1 ==="Remote");
-   setRemote(remotes); 
-   }
-    console.log(remote)
+
+    const [filterOption, setFilterOption] = useState('all');
+    const filterJobDetails = jobs.filter(detail => {
+        if (filterOption === 'all') {
+            return true;
+        }
+        else if (filterOption === 'Remote') {
+            return detail.type1 === 'Remote'
+        } else if (filterOption === 'Onsite') {
+            return detail.type1 === 'Onsite'
+        }
+    })
+
+
 
     
     return (
@@ -20,12 +28,12 @@ const Appliedjobs = () => {
             </div>
             <div className='mt-20 px-40'>
          <p className='text-right space-x-2'>
-            <button  className='border border-teal-300 bg-lime-400 py-1 px-5 rounded text-white font-semibold'>All Job</button>
-            <button  className='border border-teal-300 bg-green-400 py-1 px-5 rounded text-white font-semibold'>Onsite</button>
-            <button onClick={remoteJob} className='border border-teal-300 bg-lime-400 py-1 px-3 rounded text-white font-semibold'>Remote</button>
+            <button onClick={() => setFilterOption('all')}  className='border border-teal-300  bg-lime-400 hover:bg-lime-500 py-1 px-5 rounded text-white font-semibold'>All Job</button>
+            <button onClick={() => setFilterOption('Onsite')} className='border border-teal-300 bg-green-400 hover:bg-green-500 py-1 px-5 rounded text-white font-semibold'>Onsite</button>
+            <button onClick={() => setFilterOption('Remote')} className='border border-teal-300 bg-lime-400 hover:bg-lime-500 py-1 px-3 rounded text-white font-semibold'>Remote</button>
             </p>
                 {
-                    jobs.map(job => <Applied
+                filterJobDetails.map(job => <Applied
                         key={job.id}
                         job={job}
                     ></Applied>)

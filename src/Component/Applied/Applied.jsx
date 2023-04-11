@@ -31,7 +31,9 @@ const Applied = ({job}) => {
             </div>
 
             <Link to={`/${id}`}>
-                <button className='hover:bg-purple-600 bg-purple-500 py-3 px-4 font-bold text-white rounded'>View Details</button>
+                <button className='hover:bg-purple-600
+                 bg-purple-500 py-3 
+                px-4 font-bold text-white rounded'>View Details</button>
             </Link>
         </div>
         </div>

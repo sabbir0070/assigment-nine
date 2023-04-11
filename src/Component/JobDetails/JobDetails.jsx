@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import {Link, useParams } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {PhoneIcon } from '@heroicons/vue/24/solid';
 import { addToDb } from '../../fakeDb/utilities';
+import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 const JobDetails = () => {
     const jobId = useParams();
     console.log(jobId)
@@ -44,11 +46,22 @@ const JobDetails = () => {
             <h2 className='text-2xl font-bold mt-4 py-2'>Contact Information</h2>
             <hr className='bg-gray-600 h-1' />
             <div className='mb-28'>
-            <p className='text-gray-700 font-semibold'>  <span className='text-lg font-bold  text-gray-800'>Phone: </span>{jobDetails&& jobDetails.phone}</p>
-            <p className='text-gray-700 font-semibold'><span className='text-lg font-bold  text-gray-800'>Email: </span>{jobDetails&& jobDetails.email}</p>
-            <p className='text-gray-700 font-semibold'><span className='text-lg font-bold  text-gray-800'>Address: </span>{jobDetails&& jobDetails.address}</p>
+            <p className='text-gray-700 font-semibold'> 
+             <span className='text-lg font-bold  text-gray-800'>Phone: </span>
+             {jobDetails&& jobDetails.phone}</p>
+            <p className='text-gray-700 font-semibold'>
+                <span className='text-lg font-bold  text-gray-800'>Email: </span>
+                {jobDetails&& jobDetails.email}</p>
+            <p className='text-gray-700 font-semibold'>
+            <FontAwesomeIcon className='text-xl font-bold text-gray-500 mr-2' icon={faLocationDot} />
+                <span className='text-lg font-bold  text-gray-800'>Address: </span>
+                {jobDetails&& jobDetails.address}</p>
             </div>
-          <Link to='' className='sm:max-w-[100%] lg:max-w-[70%] md:max-w-[70%]  text-center bg-indigo-500'><button onClick={()=>addToCart(jobDetails)} className=' w-full text-white bg-indigo-500 border border-indigo-500 py-1 px-5 text'>Apply Now </button></Link>
+          <Link to='' className='sm:max-w-[100%] lg:max-w-[70%] md:max-w-[70%] 
+           text-center bg-indigo-500'>
+            <button onClick={()=>addToCart(jobDetails)} className=' w-full text-white
+             bg-indigo-500 border border-indigo-500 py-1 px-5 
+             text'>Apply Now </button></Link>
 
           </div>
         
