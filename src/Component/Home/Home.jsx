@@ -4,6 +4,7 @@ import { useLoaderData } from 'react-router-dom';
 import JobCategory from '../JobCategory/JobCategory';
 import Featuredjobs from '../Featuredjobs/Featuredjobs';
 
+import banner from '../../assets/banner.png';
 
 const Home = () => {
     const [categorys,setCategorys] = useState([]);
@@ -40,7 +41,7 @@ const seeAllButton = ()=>{
             <button className='bg-indigo-500 mt-10 text-white py-2 px-4'>Get Started</button>
             </div>
             <div className='sm:w-full lg:w-full  md:w-full '>
-            <img className='bg-cover  bg-gray-300' src='/src/assets/P3OLGJ1 copy 1.png' alt="img nai" />
+           <img className='bg-cover  bg-gray-300' src= {banner} alt="img nai" />
             </div>
             <div>
             </div>
