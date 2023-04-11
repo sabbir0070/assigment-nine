@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import JobCategory from '../JobCategory/JobCategory';
 import Featuredjobs from '../Featuredjobs/Featuredjobs';
+import { PhoneIcon, PhotoIcon } from '@heroicons/vue/24/solid';
 
 const Home = () => {
     const jobDatas = useLoaderData();
@@ -43,7 +44,6 @@ const Home = () => {
             <div className='grid grid-cols-1 mx-auto sm:w-[80%] lg:w-[80%] md:grid-cols-2 lg:grid-cols-2 '>
                 {jobDatas.map(jobData=><Featuredjobs key={jobData.id} jobData={jobData}></Featuredjobs>)}
             </div>
-
         </div>
     );
 };

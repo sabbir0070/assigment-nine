@@ -1,4 +1,4 @@
-import { Bars2Icon, Bars3Icon, BeakerIcon, TrashIcon, XMarkIcon } from '@heroicons/react/24/solid';
+import {Bars3Icon,  XMarkIcon } from '@heroicons/react/24/solid';
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
@@ -10,11 +10,11 @@ const Header = () => {
             <div className='flex justify-between items-center p-10 bg-gray-200'>
           <Link to="/" className='text-3xl font-bold inline-flex items-center'>Job Circular</Link>
          <ul className='items-center hidden space-x-8 lg:flex text-gray-600 text-lg'>
-         <NavLink to='/home' className={({ isActive }) => (isActive ? 'active' : 'default')}>Home</NavLink>
+         <NavLink to='/' className={({ isActive }) => (isActive ? 'active' : 'default')}>Home</NavLink>
          <NavLink to='/statistic' className={({ isActive }) => (isActive ? 'active' : 'default')}>Statistics</NavLink>
          <NavLink to='/applied' className={({ isActive }) => (isActive ? 'active' : 'default')}>Applied Jobs</NavLink>
          <NavLink to='/blog' className={({ isActive }) => (isActive ? 'active' : 'default')}>Blog</NavLink>
-         <NavLink to='applying'><button className='bg-indigo-500 py-2 px-3 rounded text-white'>Start Applying</button></NavLink>
+         <NavLink to='/applying'><button className='bg-indigo-500 py-2 px-3 rounded text-white'>Start Applying</button></NavLink>
          </ul>
         <div className='lg:hidden'>
             < button aria-label='Open Menu'
