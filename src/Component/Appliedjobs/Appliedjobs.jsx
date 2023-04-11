@@ -15,11 +15,7 @@ const Appliedjobs = () => {
         } else if (filterOption === 'Onsite') {
             return detail.type1 === 'Onsite'
         }
-    })
-
-
-
-    
+    }) 
     return (
         <div>
             

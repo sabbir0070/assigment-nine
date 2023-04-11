@@ -36,7 +36,7 @@ const seeAllButton = ()=>{
         <div>
      <div className='grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-2 bg-gray-200 justify-around sm:max-w-xl mx-auto  md:max-w-full lg:w-max-screen-xl  px-10 py-5'>
             <div className=' '>
-             <p className='text-4xl font-bold text-gray-800 leading-tight '>One Step <br /> Closer To Your <br /> <span className='text-indigo-500 lineExplore thousands of job opportunities with all the information you need. Its your future. Come find it. Manage all your job application from start to finish'>Dream Job</span> </p>
+             <p className='text-4xl font-bold text-gray-800 leading-tight '>We Are <br /> Going To Show Your  <br /> <span className='text-indigo-500 lineExplore thousands of job opportunities with all the information you need. Its your future. Come find it. Manage all your job application from start to finish'>Perfect Job</span> </p>
             <p className='text-gray-700 text-lg'>Explore thousands of job opportunities with all the <br /> information you need. Its your future. Come find it. Manage all <br /> your job application from start to finish.</p>
             <button className='bg-indigo-500 mt-10 text-white py-2 px-4'>Get Started</button>
             </div>
