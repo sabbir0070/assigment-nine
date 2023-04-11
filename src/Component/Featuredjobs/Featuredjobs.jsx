@@ -1,6 +1,6 @@
 import {MapPinIcon } from '@heroicons/react/24/solid';
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import JobDetails from '../JobDetails/JobDetails';
 
 const Featuredjobs = ({jobData}) => {

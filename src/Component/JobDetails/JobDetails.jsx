@@ -1,20 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import {Link, useParams } from 'react-router-dom';
 import {PhoneIcon } from '@heroicons/vue/24/solid';
+import { addToDb } from '../../fakeDb/utilities';
 const JobDetails = () => {
     const jobId = useParams();
+    console.log(jobId)
     // const dynamicId = jobId.id;
     const [details,setDetails] = useState([]);
    useEffect(()=>{
-    fetch('jobData.json')
+     fetch('jobData.json')
     .then(res=>res.json())
-    .then(data=>setDetails(data));
+    .then(data=>setDetails(data))
+    
     
 },[])
-
  const jobDetails = details.find(detail=>detail.id == jobId.id);
-//   const {name,salary,description,experience,responsibility,requirement,title,phone,email,address,location} = jobDetails;
- console.log(jobDetails)
+    // const {id,name,salary,description,phone,email,address,location} = jobDetails;  
+ const addToCart = (jobs)=>{
+    const newJob = [...details, jobs];
+    setDetails(newJob)
+    addToDb(jobs.id)
+ }
     return (
         <div className='bg-slate-100'>
             <h2 className='text-3xl w-[80%] md:w-[70%] mx-auto font-bold  pt-3 text-center pb-7 text-gray-800'>Job Details</h2>
@@ -42,7 +48,7 @@ const JobDetails = () => {
             <p className='text-gray-700 font-semibold'><span className='text-lg font-bold  text-gray-800'>Email: </span>{jobDetails&& jobDetails.email}</p>
             <p className='text-gray-700 font-semibold'><span className='text-lg font-bold  text-gray-800'>Address: </span>{jobDetails&& jobDetails.address}</p>
             </div>
-          <Link className=' sm:max-w-[100%] lg:max-w-[70%] md:max-w-[70%]  text-center bg-indigo-500'><button className=' w-full text-white bg-indigo-500 border border-indigo-500 py-1 px-5 text'>Apply Now </button></Link>
+          <Link to='' className='sm:max-w-[100%] lg:max-w-[70%] md:max-w-[70%]  text-center bg-indigo-500'><button onClick={()=>addToCart(jobDetails)} className=' w-full text-white bg-indigo-500 border border-indigo-500 py-1 px-5 text'>Apply Now </button></Link>
 
           </div>
         
