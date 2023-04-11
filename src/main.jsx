@@ -17,10 +17,8 @@ import getData from './fetchdata';
 const router = createBrowserRouter([
   {
     path: "/",
-    element:<App></App>,
+    element:<App></App>, 
     errorElement:<ErrorPage></ErrorPage>,
-    
-    
     children:[{
       path:'/',
       element:<Home></Home>,
@@ -45,8 +43,7 @@ const router = createBrowserRouter([
   path:'/:id',
   element:<JobDetails></JobDetails>,
   
-}
-
+},
   ]
   },
 

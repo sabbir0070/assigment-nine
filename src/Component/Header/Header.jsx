@@ -10,10 +10,10 @@ const Header = () => {
             <div className='flex justify-between items-center p-10 bg-gray-200'>
           <Link to="" className='text-3xl font-bold inline-flex items-center'>Job Circular</Link>
          <ul className='items-center hidden space-x-8 lg:flex text-gray-600 text-lg'>
-         <NavLink to='/' className={({ isActive }) => (isActive ? 'active' : 'default')}>Home</NavLink>
-         <NavLink to='/statistic' className={({ isActive }) => (isActive ? 'active' : 'default')}>Statistics</NavLink>
-         <NavLink to='/applied' className={({ isActive }) => (isActive ? 'active' : 'default')}>Applied Jobs</NavLink>
-         <NavLink to='/blog' className={({ isActive }) => (isActive ? 'active' : 'default')}>Blog</NavLink>
+         <NavLink to='/' className={({ isActive }) => (isActive ? 'text-blue-500' : 'default')}>Home</NavLink>
+         <NavLink to='/statistic' className={({ isActive }) => (isActive ? 'text-blue-500' : 'default')}>Statistics</NavLink>
+         <NavLink to='/applied' className={({ isActive }) => (isActive ? 'text-blue-500' : 'default')}>Applied Jobs</NavLink>
+         <NavLink to='/blog' className={({ isActive }) => (isActive ? 'text-blue-500' : 'default')}>Blog</NavLink>
         <button className='bg-indigo-500 py-2 px-3 rounded text-white'>Start Applying</button>
          </ul>
         <div className='lg:hidden'>
